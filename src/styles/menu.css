@@ -48,8 +48,8 @@
 
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(270px,1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 26px;
   margin-top: 30px;
 }
 

@@ -36,42 +36,89 @@ function FoodDetail() {
     return (
         <div className="detail-page">
 
-            <Link to="/">← Back to Menu</Link>
+            <div className="detail-header">
 
-            <Link to="/saved-recipes">
-                Saved Recipes ({savedRecipes.length})
-            </Link>
+                <Link to="/" className="back-btn">
+                    ← Back to Menu
+                </Link>
 
-            <img
-                src={item.image}
-                alt={item.name}
-            />
+                <div className="header-actions">
+                    <Link to="/saved-recipes" className="saved-btn">
+                        Saved Recipes
+                    </Link>
 
-            <h1>{item.name}</h1>
+                    <button
+                        className={isSaved ? "saved-btn-active" : "save-btn"}
+                        onClick={handleSaveRecipe}
+                    >
+                        {isSaved ? "✓ Saved" : "Save Recipe"}
+                    </button>
+                </div>
 
-            <p>{item.category.toUpperCase()}</p>
+            </div>
 
-            <p>{item.isVeg ? "Veg" : "Non-Veg"}</p>
+            <div className="detail-top">
 
-            <p>{item.servings}</p>
+                <div className="detail-image">
+                    <img
+                        src={item.image}
+                        alt={item.name}
+                    />
+                </div>
 
-            <button onClick={handleSaveRecipe}>
-                {isSaved ? "Saved" : "Save Recipe"}
-            </button>
+                <div className="detail-info">
 
-            <h2>Description</h2>
+                    <div className="tags">
 
-            <p>{item.fullDescription}</p>
+                        <span className="category-tag">
+                            {item.category}
+                        </span>
 
-            <h2>Ingredients</h2>
+                        <span
+                            className={item.isVeg ? "veg-tag" : "nonveg-tag"}
+                        >
+                            {item.isVeg ? "🌿 Veg" : "🍖 Non-Veg"}
+                        </span>
 
-            <ul>
-                {item.ingredients.map((ingredient, index) => (
-                    <li key={index}>
-                        {ingredient.name} - {ingredient.quantity}
-                    </li>
-                ))}
-            </ul>
+                    </div>
+
+                    <h1>{item.name}</h1>
+
+                    <p className="servings">
+                        {item.servings}
+                    </p>
+
+                    <p className="description">
+                        {item.fullDescription}
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div className="ingredients-card">
+
+                <h2>Ingredients</h2>
+
+                <div className="ingredients-list">
+
+                    {item.ingredients.map((ingredient, index) => (
+
+                        <div
+                            className="ingredient-item"
+                            key={index}
+                        >
+                            <span>{ingredient.name}</span>
+
+                            <span>{ingredient.quantity}</span>
+
+                        </div>
+
+                    ))}
+
+                </div>
+
+            </div>
 
         </div>
     );

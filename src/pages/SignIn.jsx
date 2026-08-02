@@ -5,7 +5,6 @@ import "../styles/signin.css";
 
 function SignIn() {
     const navigate = useNavigate();
-
     const { login, isAuthenticated } = useAuth();
 
     if (isAuthenticated) {
@@ -14,12 +13,17 @@ function SignIn() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
+    
     async function handleSubmit(e) {
         e.preventDefault();
+
+        if (!email || !password) {
+            setError("Email and password are required");
+            return;
+        }
 
         setLoading(true);
         setError("");
@@ -45,41 +49,54 @@ function SignIn() {
                 login(data.data.token, data.data.user);
                 navigate("/");
             } else {
-                setError(data.message);
+                setError(data.message || "Invalid credentials");
             }
         } catch {
-            setError("Something went wrong.");
+            setError("Something went wrong. Please try again.");
+        } finally {
+            setLoading(false);
         }
-
-        setLoading(false);
     }
 
     return (
         <div className="signin-page">
             <div className="signin-card">
+                <div className="signin-logo-wrapper">
+                    <svg className="signin-logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                </div>
+
                 <h1>Party Menu</h1>
-                <p>Sign in to your account</p>
+                <p className="signin-subtitle">Sign in to explore our delicious menu</p>
+
+                {error && <div className="error-alert">{error}</div>}
 
                 <form onSubmit={handleSubmit}>
-                    <input
-                        type="email"
-                        placeholder="Email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
+                    <div className="form-group">
+                        <label>Email</label>
+                        <input
+                            type="email"
+                            placeholder="admin@example.com"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                    </div>
 
-                    <input
-                        type="password"
-                        placeholder="Password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
+                    <div className="form-group">
+                        <label>Password</label>
+                        <input
+                            type="password"
+                            placeholder="••••••••"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </div>
 
-                    <button>
+                    <button type="submit" disabled={loading}>
                         {loading ? "Signing in..." : "Sign In"}
                     </button>
-
-                    {error && <p className="error">{error}</p>}
                 </form>
             </div>
         </div>

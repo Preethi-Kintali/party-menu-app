@@ -2,46 +2,76 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 50px;
-  background: #1f2937;
-  border-bottom: 1px solid #374151;
-  flex-wrap: wrap;
-  gap: 15px;
+  padding: 20px 45px;
+  background: #151d2a;
+  border-bottom: 1px solid #222f43;
 }
 
-.header h2 {
-  color: #f97316;
+.header-left h2 {
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
 }
 
-.header p {
-  color: #d1d5db;
-  margin-top: 5px;
+.user-welcome {
+  color: #94a3b8;
+  font-size: 13px;
+  margin-top: 4px;
 }
 
 .header-right {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
 }
 
-.header-right a {
-  color: white;
-  font-weight: bold;
+.saved-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid #2a384c;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.saved-nav-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.saved-badge-pill {
+  background: #f97316;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 12px;
 }
 
 .logout-btn {
-  background: #ef4444;
-  color: white;
-  padding: 10px 18px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid #2a384c;
+  color: #ffffff;
+  padding: 8px 16px;
   border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.2s;
 }
 
 .logout-btn:hover {
-  background: #dc2626;
+  background: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+  border-color: rgba(239, 68, 68, 0.4);
 }
 
 @media (max-width: 640px) {
   .header {
-    padding: 15px 20px;
+    padding: 16px 20px;
   }
 }

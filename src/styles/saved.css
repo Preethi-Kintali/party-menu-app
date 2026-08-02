@@ -1,15 +1,123 @@
-.saved-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(270px,1fr));
-  gap: 25px;
-  margin-top: 30px;
+.saved-page {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
 }
 
-.saved-grid button {
-  width: 100%;
-  margin-top: 10px;
-  padding: 10px;
-  background: crimson;
+.saved-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 35px;
+}
+
+.saved-header h1 {
+  font-size: 52px;
+  margin-bottom: 8px;
+}
+
+.saved-header p {
+  color: #8d93ab;
+}
+
+.back-btn {
+  padding: 12px 22px;
+  border: 1px solid #313445;
+  border-radius: 12px;
+  color: #d2d3df;
+  background: #18181f;
+}
+
+.saved-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 30px;
+}
+
+.saved-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.remove-btn {
+  margin-top: 18px;
+  padding: 13px;
+  border: 1px solid #d04a4a;
+  background: transparent;
+  color: #d04a4a;
+  border-radius: 12px;
+  font-size: 15px;
+  transition: .25s;
+}
+
+.remove-btn:hover {
+  background: #d04a4a;
   color: white;
-  border-radius: 8px;
+}
+
+.saved-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.empty-state {
+  min-height: 65vh;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+}
+
+.empty-image {
+  width: 220px;
+  margin-bottom: 25px;
+}
+
+.empty-state h2 {
+  font-size: 34px;
+  margin-bottom: 12px;
+}
+
+.empty-state p {
+  color: #8d93ab;
+  margin-bottom: 28px;
+}
+
+.browse-btn {
+  background: #ea6a1b;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.empty-state {
+  height: 60vh;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.empty-text {
+  color: #8d93ab;
+  font-size: 18px;
+  margin-bottom: 22px;
+}
+
+.browse-link {
+  color: #ea6a1b;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.browse-link:hover {
+  text-decoration: underline;
 }

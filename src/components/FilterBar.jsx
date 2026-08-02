@@ -1,3 +1,5 @@
+import "../styles/filterbar.css";
+
 function FilterBar({
   category,
   setCategory,
@@ -13,43 +15,57 @@ function FilterBar({
   return (
     <div className="filter-container">
 
-      <div className="category-filters">
-        {categories.map((item) => (
-          <button
-            key={item}
-            className={category === item ? "active" : ""}
-            onClick={() => setCategory(item)}
-          >
-            {item.charAt(0).toUpperCase() + item.slice(1)}
-          </button>
-        ))}
+      {/* CATEGORY */}
+      <div className="filter-section">
+        <h4 className="filter-title">CATEGORY</h4>
+
+        <div className="chip-group">
+          {categories.map((item) => (
+            <button
+              key={item}
+              className={`chip ${category === item ? "active" : ""}`}
+              onClick={() => setCategory(item)}
+            >
+              {item.charAt(0).toUpperCase() + item.slice(1)}
+            </button>
+          ))}
+        </div>
       </div>
 
-      <div className="diet-filters">
-        {diets.map((item) => (
-          <button
-            key={item}
-            className={diet === item ? "active" : ""}
-            onClick={() => setDiet(item)}
-          >
-            {item === "nonveg" ? "Non-Veg" : item.charAt(0).toUpperCase() + item.slice(1)}
-          </button>
-        ))}
+      {/* DIET */}
+      <div className="filter-section">
+        <h4 className="filter-title">DIET</h4>
+
+        <div className="chip-group">
+          {diets.map((item) => (
+            <button
+              key={item}
+              className={`chip ${diet === item ? "active" : ""}`}
+              onClick={() => setDiet(item)}
+            >
+              {item === "veg" && "🌿 "}
+              {item === "nonveg" && "🍖 "}
+              {item === "nonveg"
+                ? "Non-Veg"
+                : item.charAt(0).toUpperCase() + item.slice(1)}
+            </button>
+          ))}
+        </div>
       </div>
 
+      {/* SEARCH */}
       <div className="search-box">
         <input
           type="text"
-          placeholder="Search dishes..."
+          placeholder="Search by name (e.g. chicken)"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
 
-        <button onClick={onSearch}>
+        <button className="search-btn" onClick={onSearch}>
           Search
         </button>
       </div>
-
     </div>
   );
 }

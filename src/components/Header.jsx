@@ -15,14 +15,17 @@ function Header() {
 
   return (
     <header className="header">
-      <div>
+      <div className="header-left">
         <h2>Party Menu</h2>
-        <p>Welcome, {user?.name}</p>
+        <p className="user-welcome">Welcome, {user?.name || "Admin User"}</p>
       </div>
 
       <div className="header-right">
-        <Link to="/saved-recipes">
-          Saved Recipes ({savedRecipes.length})
+        <Link to="/saved-recipes" className="saved-nav-btn">
+          <span>Saved Recipes</span>
+          {savedRecipes.length > 0 && (
+            <span className="saved-badge-pill">{savedRecipes.length}</span>
+          )}
         </Link>
 
         <button className="logout-btn" onClick={handleLogout}>
