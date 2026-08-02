@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import FilterBar from "../components/FilterBar";
 import FoodCard from "../components/FoodCard";
+import "../styles/menu.css";
 
 import { filterMenuItems } from "../data/menuData";
 
@@ -41,7 +42,7 @@ function Menu() {
   }, [category, diet]);
 
   return (
-    <div>
+    <div className="menu-container">
 
       <Header />
 
@@ -55,12 +56,12 @@ function Menu() {
         onSearch={handleSearch}
       />
 
-      <h3>{filteredItems.length} items found</h3>
+      <h3 className="items-found">{filteredItems.length} items found</h3>
 
       {filteredItems.length === 0 ? (
-        <p>No dishes found. Try different filters.</p>
+        <p className="empty-state">No dishes found. Try different filters.</p>
       ) : (
-        <div>
+        <div className="menu-grid">
           {filteredItems.map(item => (
             <FoodCard
               key={item.id}

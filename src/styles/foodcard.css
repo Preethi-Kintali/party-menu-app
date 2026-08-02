@@ -1,1 +1,50 @@
-/* foodcard.css */
+.food-card {
+  background: #1f2937;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: .3s;
+}
+
+.food-card:hover {
+  transform: translateY(-5px);
+}
+
+.food-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.food-content {
+  padding: 18px;
+}
+
+.food-content h3 {
+  margin: 10px 0;
+}
+
+.food-content p {
+  color: #d1d5db;
+  font-size: 14px;
+}
+
+.servings {
+  margin-top: 10px;
+  display: block;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  color: white;
+  font-size: 12px;
+}
+
+.veg {
+  background: green;
+}
+
+.nonveg {
+  background: red;
+}

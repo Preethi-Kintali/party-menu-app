@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getMenuItemById } from "../data/menuData";
 import { useSavedRecipes } from "../context/SavedRecipesContext";
+import "../styles/detail.css";
 
 function FoodDetail() {
     const { id } = useParams();

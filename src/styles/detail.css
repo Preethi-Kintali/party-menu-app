@@ -1,1 +1,30 @@
-/* detail.css */
+.detail-page {
+  width: 900px;
+  margin: 40px auto;
+}
+
+.detail-page img {
+  width: 100%;
+  border-radius: 12px;
+  margin: 20px 0;
+}
+
+.detail-page h1 {
+  margin-bottom: 15px;
+}
+
+.detail-page button {
+  margin: 20px 0;
+  padding: 12px 25px;
+  background: #f97316;
+  color: white;
+  border-radius: 8px;
+}
+
+.detail-page ul {
+  margin-top: 20px;
+}
+
+.detail-page li {
+  margin-bottom: 10px;
+}

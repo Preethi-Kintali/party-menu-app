@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import FoodCard from "../components/FoodCard";
 import { useSavedRecipes } from "../context/SavedRecipesContext";
+import "../styles/saved.css";
 
 function SavedRecipes() {
     const {
