@@ -1,4 +1,4 @@
-[
+export const menuData = [
   {
     "id": 1,
     "name": "Tandoori Chicken",
@@ -1599,4 +1599,29 @@
     ],
     "servings": "For 4 people"
   }
-]
+];
+
+export function getMenuItemById(id) {
+  return menuData.find(item => item.id === Number(id));
+}
+
+export function filterMenuItems({
+  category = "all",
+  diet = "all",
+  name = "",
+}) {
+  return menuData.filter(item => {
+    const categoryMatch =
+      category === "all" || item.category === category;
+
+    const dietMatch =
+      diet === "all" ||
+      (diet === "veg" && item.isVeg) ||
+      (diet === "nonveg" && !item.isVeg);
+
+    const nameMatch =
+      item.name.toLowerCase().includes(name.toLowerCase());
+
+    return categoryMatch && dietMatch && nameMatch;
+  });
+}
